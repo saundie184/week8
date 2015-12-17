@@ -18,15 +18,16 @@ router.post('/hipstafy', function(req, res, next) {
   // split user input by the spaces
   var userInput = req.body.textbox;
   var userInputArray = userInput.split(' ');
-  // console.log(userInputArray[1]);
-  //create new array that combines one word from user input and one word from snippets
-
+  var newArray = [];
   userInputArray.forEach(function(x) {
     var num = getRandomInt(0, snippets.length - 1);
     var randomHipsterWord = snippets[num];
     var message = x + " " + randomHipsterWord;
-    res.send('/hipstafy', message);
+    newArray.push(message);
   });
+
+  // console.log(newArray.toString());
+  res.send('/hipstafy', newArray.join(' '));
 
 });
 

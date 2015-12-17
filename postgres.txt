@@ -1,0 +1,53 @@
+POSTGRES!!
+
+Create a table to hold data about homes for sale. The table should contain fields for id, address, city, state, description,
+listing price, listing agent, square footage, bedroom count, and bathroom count.
+
+Useful commands (in this order):
+\list #list databases
+\connect db_name #connect to a database
+\dt #list tables
+\dt+ table_name #shows the definition for the table
+
+
+Defining columns for this table and the maximum length
+char = a fixed length
+VARCHAR = variable character length
+
+
+CREATE TABLE homes_for_sale(
+  id SERIAL PRIMARY KEY,
+  address VARCHAR(127),
+  city VARCHAR(127),
+  state VARCHAR(127),
+  description VARCHAR(255),
+  listing_price DECIMAL,
+  listing_agent VARCHAR(127),
+  square_footage INTEGER,
+  bedroom_count SMALLINT,
+  bathroom_count SMALLINT
+);
+
+info we are using:
+
+633 Brandt Cir Fort Collins, CO 80524
+120000
+2bed
+2bath
+1268 SqFt
+this is the description
+Josh Foster
+
+
+INSERT INTO homes_for_sale VALUES (
+DEFAULT,
+'1509 Constitution Ave',
+'Fort Collins',
+'Colorado',
+'Really nice palce',
+319000,
+'Angie Spangler',
+2548,
+5,
+3
+);
